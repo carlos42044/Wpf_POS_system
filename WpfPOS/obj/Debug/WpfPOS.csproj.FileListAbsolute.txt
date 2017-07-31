@@ -1,0 +1,14 @@
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\bin\Debug\WpfPOS.exe.config
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\bin\Debug\WpfPOS.exe
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\bin\Debug\WpfPOS.pdb
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.csprojResolveAssemblyReference.cache
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\MainWindow.g.cs
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\App.g.cs
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS_MarkupCompile.cache
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS_MarkupCompile.lref
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\MainWindow.baml
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.g.resources
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.Properties.Resources.resources
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.csproj.GenerateResource.Cache
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.exe
+c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.pdb
