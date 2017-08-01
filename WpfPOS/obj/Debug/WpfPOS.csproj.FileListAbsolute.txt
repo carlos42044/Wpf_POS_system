@@ -14,3 +14,7 @@ c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\W
 c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\WpfPOS.pdb
 c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\bin\Debug\ApplicationSettings.dll
 c:\users\carlosf\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\bin\Debug\ApplicationSettings.pdb
+C:\Users\CarlosF\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\popup.g.cs
+C:\Users\CarlosF\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\popup.baml
+C:\Users\CarlosF\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\settings.g.cs
+C:\Users\CarlosF\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\settings.baml

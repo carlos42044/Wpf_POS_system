@@ -6,13 +6,19 @@
         xmlns:local="clr-namespace:WpfPOS"
         mc:Ignorable="d"
         Title="WpfPOS" Height="388.367" Width="525">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Settings" Click="MenuItem_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
     <Grid>
+        
+        <Label x:Name="nameLabel" Content="Name" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Height="27" Width="80" Background="DarkGray" MouseLeftButtonUp="nameLabel_MouseLeftButtonUp"/>
+
         <Button x:Name="nameBtn" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="nameBtn_Click"/>
 
-        <Image x:Name="pictureBox1" HorizontalAlignment="Left" Height="27" Margin="10,7,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-
-        <Label x:Name="nameLabel" Content="Name" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Height="27" Width="80" Background="DarkGray" MouseLeftButtonUp="nameLabel_MouseLeftButtonUp"/>
+        <Image x:Name="pictureBox1" HorizontalAlignment="Left" Height="27" Margin="10,7,0,0" VerticalAlignment="Top" Width="120" MouseLeftButtonUp="pictureBox1_MouseLeftButtonUp"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox1_SelectionChanged"/>
 
         <TabControl HorizontalAlignment="Left" Height="269" Margin="10,42,0,0" VerticalAlignment="Top" Width="478">
             <TabItem Header="Cart">
@@ -21,25 +27,28 @@
                         <ColumnDefinition Width="16"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid HorizontalAlignment="Left" Height="206" VerticalAlignment="Top" Width="472" Grid.ColumnSpan="2" Margin="0,35,0,0"/>
-                    <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Width="40" Grid.ColumnSpan="2" RenderTransformOrigin="0.733,1" Margin="0,10,0,211"/>
-                    <Button x:Name="clearBtn" Content="Clear" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,387,0" VerticalAlignment="Top" Width="40"/>
+                    <DataGrid x:Name="dataGridView1" HorizontalAlignment="Left" Height="206" VerticalAlignment="Top" Width="472" Grid.ColumnSpan="2" Margin="0,35,0,0"/>
+                    <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Width="40" Grid.ColumnSpan="2" RenderTransformOrigin="0.733,1" Margin="0,10,0,211" Click="addBtn_Click"/>
+                    <Button x:Name="clearBtn" Content="Clear" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,387,0" VerticalAlignment="Top" Width="40" Click="clearBtn_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Trans">
                 <Grid Background="#FFF">
-                    <DataGrid HorizontalAlignment="Left" Height="190" VerticalAlignment="Top" Width="472"/>
+                    <DataGrid x:Name="dataGridView2" HorizontalAlignment="Left" Height="241" VerticalAlignment="Top" Width="472"/>
                 </Grid>
             </TabItem>
         </TabControl>
         <Label Content="Total" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Background="DarkGray"/>
         <Label x:Name="totalLabel" Content="0.00" HorizontalAlignment="Left" Margin="50,316,0,0" VerticalAlignment="Top" Background="DarkGray"/>
-        <Button x:Name="payBtn" Content="Pay" HorizontalAlignment="Left" Margin="99,316,0,0" VerticalAlignment="Top" Width="40" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="153,316,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="65" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" RenderTransformOrigin="0.887,0.5"/>
-        <Label Content="required: 0.00" HorizontalAlignment="Left" Margin="223,316,0,0" VerticalAlignment="Top" Foreground="Red" Width="105"/>
-        <Button x:Name="processBtn" Content="Process" HorizontalAlignment="Left" Margin="333,316,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
-        <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="413,316,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
-        <Label x:Name="timeLabel" Content="Time" HorizontalAlignment="Left" Margin="223,7,0,0" VerticalAlignment="Top" Width="126" Background="DarkGray"/>
-
+        <Button x:Name="payBtn" Content="Pay" HorizontalAlignment="Left" Margin="99,316,0,0" VerticalAlignment="Top" Width="40" Height="26" IsEnabled="False" Click="payBtn_Click"/>
+        <TextBox x:Name="tendered" HorizontalAlignment="Left" Height="26" Margin="153,316,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="65" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" Visibility="Collapsed" RenderTransformOrigin="0.887,0.5"/>
+        <Label x:Name="requiredLabel" Content="required: 0.00" HorizontalAlignment="Left" Margin="223,316,0,0" VerticalAlignment="Top" Foreground="Red" Width="105" Visibility="Collapsed"/>
+        <Button x:Name="processBtn" Content="Process" HorizontalAlignment="Left" Margin="333,316,0,0" VerticalAlignment="Top" Width="75" Height="26" Visibility="Collapsed" Click="processBtn_Click"/>
+        <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="413,316,0,0" VerticalAlignment="Top" Width="75" Height="26" Visibility="Collapsed" Click="cancelBtn_Click"/>
+        <Label x:Name="timeLabel" Content="Time" HorizontalAlignment="Left" Margin="223,7,0,0" VerticalAlignment="Top" Width="77" Background="DarkGray"/>
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="863,-12,-446,0" VerticalAlignment="Top" Width="100"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-150,311,0,0" VerticalAlignment="Top"/>
     </Grid>
+    
+    
 </Window>
