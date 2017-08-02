@@ -29,7 +29,6 @@ namespace WpfPOS
         {
             InitializeComponent();
             requiredLabel.Content = req;
-               MessageBox.Show("at popup window user: " + user);
  }
 
         private void processBtn_Click(object sender, RoutedEventArgs e)

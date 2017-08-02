@@ -29,38 +29,64 @@ namespace WpfPOS
             InitializeComponent();
             config.Read(filename);
             setRadioChecks();
+           // radioImage.IsChecked = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
+        // for radioLabel
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
-
+            toggleRadio("LabelIsVisible");
         }
 
+        // radioButton
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)
         {
-
+            toggleRadio("ButtonIsVisible");
         }
 
+        // radioImages
         private void RadioButton_Click_2(object sender, RoutedEventArgs e)
         {
-
+            toggleRadio("ImageIsVisible");
         }
 
+        // radioDropdown
         private void RadioButton_Click_3(object sender, RoutedEventArgs e)
         {
+            toggleRadio("DropIsVisible");
+        }
 
+        public void toggleRadio(string str)
+        {
+            foreach (KeyValuePair<string, object> item in config.GetDict().ToList())
+            {
+                if (item.Key.Equals(str))
+                {
+                    config.Set(item.Key, "Visible");
+
+                }
+                else if (!item.Key.Equals("popupPay"))
+                {
+                    config.Set(item.Key, "Collapsed");
+                }
+            }
+
+            config.Write(filename);
         }
 
         private void setRadioChecks()
         {
             if (config.Get("popupPay").Equals("true"))
             {
-                popupWindow.IsChecked = true;
+                radioPopout.IsChecked = true;
+            } else
+            {
+                radioInWindow.IsChecked = true;
             }
 
 
@@ -68,7 +94,7 @@ namespace WpfPOS
 
             foreach (KeyValuePair<string, object> item in config.GetDict().ToList())
             {
-                if (!item.Key.Equals("popupPay") && item.Value.Equals("true"))
+                if (!item.Key.Equals("popupPay") && item.Value.Equals("Visible"))
                 {
                     radioChecked = (string)item.Key;
                 }
@@ -93,6 +119,20 @@ namespace WpfPOS
             }
             //MessageBox.Show("initial key in config " + radioChecked);
 
+        }
+
+        // radioInWindow
+        private void RadioButton_Click_4(object sender, RoutedEventArgs e)
+        {
+            config.Set("popupPay", "false");
+            config.Write(filename);
+        }
+
+        // radioPopout
+        private void popupWindow_Click(object sender, RoutedEventArgs e)
+        {
+            config.Set("popupPay", "true");
+            config.Write(filename);
         }
     }
 }

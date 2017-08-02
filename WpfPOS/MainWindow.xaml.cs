@@ -136,13 +136,13 @@ namespace WpfPOS
         private void nameBtn_Click(object sender, RoutedEventArgs e)
         {
             randomUser();
-            nameBtn.Content = User;
+            updateContainers();
         }
 
         private void nameLabel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            randomUser();          
-            nameLabel.Content = User;
+            randomUser();
+            updateContainers();
         }
 
         private void pictureBox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -150,7 +150,14 @@ namespace WpfPOS
             randomUser();
             updateContainers();
         }
-
+        
+        // updates auto-property for User when name is changed in comboBox
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            User = comboBox1.SelectionBoxItem.ToString();
+          // updateContainers();
+        }
+        
         // Used to show correct user container (reads from settings.config file)
         private void containerVisibility()
         {
@@ -170,17 +177,13 @@ namespace WpfPOS
         // Update containers to show correct users
         private void updateContainers()
         {
-            nameLabel.Content = User;
-            nameBtn.Content = User;
-            pictureBox1.Source = BitmapToImageSource(CreateImageFromText(User));
-            comboBox1.SelectedIndex = comboBox1.Items.IndexOf(User);
+            nameLabel.Content = theUser;
+            nameBtn.Content = theUser;
+            pictureBox1.Source = BitmapToImageSource(CreateImageFromText(theUser));
+            comboBox1.SelectedIndex = comboBox1.Items.IndexOf(theUser);
         }
 
-        // updates auto-property for User when name is changed in comboBox
-        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            User = comboBox1.SelectionBoxItem.ToString();
-        }
+       
 
         // Adds items to cart
         private void addBtn_Click(object sender, RoutedEventArgs e)
@@ -218,6 +221,11 @@ namespace WpfPOS
             {
                 popup pop = new popup();
                 pop.ShowDialog();
+                table.Rows.Clear();
+                runningTotal = 0;
+                totalLabel.Content = "0.00";
+                addBtn.IsEnabled = true;
+                clearBtn.IsEnabled = true;
             }
             else
             {
@@ -372,11 +380,11 @@ namespace WpfPOS
             Graphics GraphicsObject = Graphics.FromImage(ImageObject);
 
             // Set Background color
-            //GraphicsObject.Clear(System.Drawing.Color.White);
+            GraphicsObject.Clear(System.Drawing.Color.White);
             // to specify no aliasing
             GraphicsObject.SmoothingMode = SmoothingMode.Default;
             GraphicsObject.TextRenderingHint = TextRenderingHint.SystemDefault;
-            GraphicsObject.DrawString(Text, textFont, new SolidBrush(System.Drawing.Color.White), 0, 0);
+            GraphicsObject.DrawString(Text, textFont, new SolidBrush(System.Drawing.Color.Black), 0, 0);
             GraphicsObject.Flush();
 
             return (ImageObject);
@@ -404,8 +412,8 @@ namespace WpfPOS
             settings settingWindow = new settings();
             settingWindow.ShowDialog();
             config.Read(filename);
-            updateContainers();
             containerVisibility();
+            updateContainers();
         }
     }
 

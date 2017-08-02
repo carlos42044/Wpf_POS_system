@@ -11,8 +11,9 @@
         <GroupBox Header="Pay Settings" HorizontalAlignment="Left" Height="148" Margin="156,38,0,0" VerticalAlignment="Top" Width="126">
         </GroupBox>
         <Grid>
-            <RadioButton Content="In-window" HorizontalAlignment="Left" Margin="174,92,0,0" VerticalAlignment="Top"/>
-            <RadioButton x:Name="popupWindow" Content="Popout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,72,0,0" RenderTransformOrigin="0.894,7"/>
+            <RadioButton x:Name="radioInWindow" Content="In-window" HorizontalAlignment="Left" Margin="174,71,0,0" VerticalAlignment="Top" Click="RadioButton_Click_4"/>
+            <RadioButton x:Name="radioPopout" Content="Popout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,91,0,0" RenderTransformOrigin="0.894,7" Click="popupWindow_Click"/>
+
         </Grid>
         <Border Margin="29,72,178,122">
             <Grid Margin="0,0,0,-19">
