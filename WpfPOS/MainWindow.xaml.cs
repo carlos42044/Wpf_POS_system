@@ -27,6 +27,7 @@ namespace WpfPOS
         Product[] items = new Product[6];
         Employee currentUser;
 
+        public static bool paid = false;
         // Variable to store runningTotal
         public static double runningTotal = 0.0;
 
@@ -221,11 +222,19 @@ namespace WpfPOS
             {
                 popup pop = new popup();
                 pop.ShowDialog();
-                table.Rows.Clear();
-                runningTotal = 0;
-                totalLabel.Content = "0.00";
-                addBtn.IsEnabled = true;
-                clearBtn.IsEnabled = true;
+                if (paid)
+                {
+                    table.Rows.Clear();
+                    runningTotal = 0;
+                    totalLabel.Content = "0.00";
+                    addBtn.IsEnabled = true;
+                    clearBtn.IsEnabled = true;
+                } else
+                {
+                    addBtn.IsEnabled = true;
+                    clearBtn.IsEnabled = true;
+                }
+                
             }
             else
             {

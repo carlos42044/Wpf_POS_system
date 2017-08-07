@@ -29,6 +29,7 @@ namespace WpfPOS
         {
             InitializeComponent();
             requiredLabel.Content = req;
+            totalLabel.Content = String.Format("{0:#.00}", total);
  }
 
         private void processBtn_Click(object sender, RoutedEventArgs e)
@@ -58,6 +59,7 @@ namespace WpfPOS
 
                     requiredLabel.Content = "change: " + 0;
                     processBtn.IsEnabled = true;
+                    MainWindow.paid = true;
                 }
                 else if (runningTotal - currentEntered > 0)
                 {
@@ -68,7 +70,7 @@ namespace WpfPOS
                 {
                     requiredLabel.Foreground = Brushes.Black;
                     requiredLabel.Content = "change: " + String.Format("{0:#.00}", (Math.Abs(runningTotal - currentEntered)));
-
+                    MainWindow.paid = true;
                     processBtn.IsEnabled = true;
                 }
 

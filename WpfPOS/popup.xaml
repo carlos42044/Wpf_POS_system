@@ -10,7 +10,7 @@
 
         <Label  Content="Total" HorizontalAlignment="Left" Margin="93,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.11,0.512" Background="LightGray" Height="26" Width="35"/>
         <Label x:Name="totalLabel" Content="0.00" HorizontalAlignment="Left" Margin="144,18,0,0" VerticalAlignment="Top" Background="LightGray" Height="26" Width="32"/>
-        <Label x:Name="requiredLabel" Content="required: 0.00" HorizontalAlignment="Left" Margin="93,49,0,0" VerticalAlignment="Top" Foreground="Red" Height="26" Width="83"/>
+        <Label x:Name="requiredLabel" Content="required: 0.00" HorizontalAlignment="Left" Margin="93,49,0,0" VerticalAlignment="Top" Foreground="Red" Height="26" Width="149"/>
         <TextBox x:Name="tendered" HorizontalAlignment="Left" Height="23" Margin="93,91,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.62,0.07" TextChanged="tendered_TextChanged"/>
         <Button x:Name="processBtn" Content="Process" IsEnabled="False" HorizontalAlignment="Left" Margin="53,137,0,0" Width="75" Click="processBtn_Click" Height="20" VerticalAlignment="Top"/>
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Right" Margin="0,137,59,0" VerticalAlignment="Top" Width="75" Click="cancelBtn_Click" Height="20" RenderTransformOrigin="0.305,0.545"/>
