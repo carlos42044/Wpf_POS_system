@@ -22,6 +22,6 @@ THhis application provides a simple and user friendly interface to simulate "Emp
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **WPF**        | Windows Presentation Foundation. a graphical subsystem by Microsoft for rendering user interfaces in Windows-based applications.                                |
 | **POS System** | Point of Sales System, (in this case only software) allows a merchant to calculate the amount owed by a customer, handle payment, and save transaction history. |
-| **Trans**      | Shorthand for Transaction                                                                                                                                       |
-|                |                                                                                                                                                                 |
-|                |                                                                                                                                                                 |
+| **Trans**      | Shorthand for Transaction, Trans tab displays the transaction history. |
+
+## Action Buttons
