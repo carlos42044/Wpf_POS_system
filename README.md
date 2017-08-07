@@ -6,8 +6,8 @@
 
 
 ## About this Document
-This is document is intended as a source of referenve for users of __WPF POS System__. This reference guide consists of all the features and functions present in the application. 
-The purpose of this doucment is to support the **WPF POS System User**.
+This is document is intended as a source of reference for users of __WPF POS System__. This reference guide consists of all the features and functions present in the application. 
+The purpose of this document is to support the **WPF POS System User**.
 
 ## What is WPF POS System?
 The WPF POS System is a mock POS System application emulating functionality of exisiting commerical POS Systems available. This application was developed with the intent to be used for testing/developing of a larger screen engine management software. **???**
