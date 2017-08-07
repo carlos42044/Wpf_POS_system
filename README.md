@@ -25,3 +25,30 @@ THhis application provides a simple and user friendly interface to simulate "Emp
 | **Trans**      | Shorthand for Transaction, Trans tab displays the transaction history. |
 
 ## Action Buttons
+| Icon                               | Action                                                                                                                                                                                            |
+|------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Name Label][label]               | Label that displays an "employee's" name.                                                                                                                                                         |
+| ![Time Label][timeStamp]           | Displays the current time, used for transaction history.                                                                                                                                          |
+| ![Add Button][addBtn]              | Adds a random nut product to the cart (quantity is also random).                                                                                                                                  |
+| ![Clear Button][clearBtn]          | Clears the cart of all items.                                                                                                                                                                     |
+| ![Total Label][totalLabel]         | Displays the updated total for the current transaction.                                                                                                                                           |
+| ![Pay Button][payBtn]              | When clicked it gives the user the option to pay in-window or through a popup window. (Option for in-window/popup window located in settings)                                                     |
+| ![TenderInWindow][tenderInWindow]  | Visible once the ![Pay Button][payBtn] is clicked, a text box where a user can enter payment in the format x.xx .                                                                                 |
+| ![Process][processBtn]             | Once the user enters enough money, the user may process the transaction. Each transaction is saved in the 'Trans' tab. **Note:** Once the application is closed, all transaction history is lost. |
+| ![tabs][tabs]                      | Tabs, the first shows the items currently in the cart. The second tab 'Trans' displays transaction history.                                                                                       |
+| ![Settings][settings]              | When a user right-clicks, a settings window will appear.                                                                                                                                          |
+| ![payWindow][payWindow]            | Based on what option is selected in the settings menu, the pay window may appear for a user to process payment.                                                                                   |
+| ![Settings Window][settingsWindow] | Settings window, a user can choose how the "employee's" name is displayed. The name can be displayed as a label, image, in a drop down container, or as a button. (Default is set to labels).     |
+| ![Empty Cart][emptyCart]           | An example of what an empty cart screen looks like.                                                                                                                                               |
+| ![Empty Transaction][emptyTrans]   | An example of what an empty transaction screen looks like.                                                                                                                                        |
+
+
+[label]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/label.PNG "Label"
+[timeStamp]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/timeStamp.PNG "Time Stamp"
+[addBtn]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/addBtn.PNG "Add Button"
+[clearBtn]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/clearBtn.PNG "Clear Button"
+[totalLabel]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/totalLabel.PNG "Total Label"
+[payBtn: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/payBtn.PNG "Pay Button"
+
+
+
