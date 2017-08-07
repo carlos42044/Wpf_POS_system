@@ -48,7 +48,20 @@ THhis application provides a simple and user friendly interface to simulate "Emp
 [addBtn]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/addBtn.PNG "Add Button"
 [clearBtn]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/clearBtn.PNG "Clear Button"
 [totalLabel]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/totalLabel.PNG "Total Label"
-[payBtn: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/payBtn.PNG "Pay Button"
+[payBtn]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/payBtn.PNG "Pay Button"
+[tenderInWindow]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/tenderInWindow.PNG "Tender in Window"
+[processBtn]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/processBtn.PNG "Process Button"
+[tabs]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/tabs.PNG "Tabs"
+[settings]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/settings.PNG "Settings"
+[payWindow]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/payWindow.PNG "Pay Window"
+[settingsWindow]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/settingsWindow.PNG "Settings Window"
+[emptyCart]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/emptyCartScreen.PNG "Empty Cart Screen"
+[emptyTrans]: https://github.com/carlos42044/Wpf_POS_system/blob/master/img/emptyTransScreen.PNG "Empty Trans Screen"
+
+
+
+
+
 
 
 
