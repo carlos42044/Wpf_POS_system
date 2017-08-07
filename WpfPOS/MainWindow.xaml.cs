@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using AppSettingsLib;
+﻿using AppSettingsLib;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.IO;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 
 namespace WpfPOS
@@ -29,9 +19,9 @@ namespace WpfPOS
     public partial class MainWindow : Window
     {
         // Path to the settings.config file
-        string filename = @"C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\settings.config";
+        public static string filename = @Path.ChangeExtension(System.Reflection.Assembly.GetExecutingAssembly().Location, ".config");// + "\\settings.config";
+
         Config config = new Config();
-        
         // Employee and product classes
         Employee[] user = new Employee[5];
         Product[] items = new Product[6];
@@ -83,6 +73,16 @@ namespace WpfPOS
         {
             InitializeComponent();
 
+            if (!File.Exists(filename))
+            {
+                config.Set("LabelIsVisible", "Visible");
+                config.Set("ButtonIsVisible", "Collapsed");
+                config.Set("ImageIsVisible", "Collapsed");
+                config.Set("DropIsVisible", "Collapsed");
+                config.Set("popupPay", "false");
+                config.Write(filename);
+                config.Read(filename);                                    
+            }
 
             containerVisibility();
             updateName();
@@ -95,7 +95,7 @@ namespace WpfPOS
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0,0,1);
-            dispatcherTimer.Start();
+            dispatcherTimer.Start();        
         }
 
         private void createTableHeaders()

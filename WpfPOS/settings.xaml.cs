@@ -21,8 +21,9 @@ namespace WpfPOS
     public partial class settings : Window
     {
 
-        string filename = @"C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\settings.config";
+        //string filename = @"C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\settings.config";
         Config config = new Config();
+        string filename = MainWindow.filename;
 
         public settings()
         {
