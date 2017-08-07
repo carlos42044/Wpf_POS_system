@@ -6,11 +6,11 @@
 
 
 ## About this Document
-This is document is intended as a source of reference for users of __WPF POS System__. This reference guide consists of all the features and functions present in the application. 
-The purpose of this document is to support the **WPF POS System User**.
+This is document is intended as a source of reference for users of __WPF POS System__ and __WinForms POS System__. This reference guide consists of all the features and functions present in the application. 
+The purpose of this document is to support the **POS System Users**.
 
-## What is WPF POS System?
-The WPF POS System is a mock POS System application emulating functionality of existing commercial POS Systems available. This application was developed with the intent to be used for testing/developing of a larger screen engine management software.
+## What is the WPF/WinForms POS System?
+The POS System is a mock POS System application emulating functionality of existing commercial POS Systems available. This application was developed with the intent to be used for testing/developing of a larger screen engine management software.
 
 This software aims to provide real world features one might encounter when working with commercially available POS Systems.
 
@@ -21,6 +21,7 @@ THhis application provides a simple and user friendly interface to simulate "Emp
 | **Term**       | Definition                                                                                                                                                      |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **WPF**        | Windows Presentation Foundation. a graphical subsystem by Microsoft for rendering user interfaces in Windows-based applications.                                |
+| **WinForms**      | Windows Forms (WinForms) is a graphical (GUI) class library included as a part of Microsoft .NET Framework,[1] providing a platform to write rich client applications for desktop, laptop, and tablet PCs. |
 | **POS System** | Point of Sales System, (in this case only software) allows a merchant to calculate the amount owed by a customer, handle payment, and save transaction history. |
 | **Trans**      | Shorthand for Transaction, Trans tab displays the transaction history. |
 
