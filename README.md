@@ -1,4 +1,4 @@
-# WPF POS System
+# WPF/WinForms POS System
 ### Documentation
 ###### August 2017
 ###### Compuflex
