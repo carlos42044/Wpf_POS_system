@@ -30,6 +30,8 @@ namespace WpfPOS
             InitializeComponent();
             config.Read(filename);
             setRadioChecks();
+            fillComboBox();
+            comboBoxProduct.SelectedIndex = comboBoxProduct.Items.IndexOf((string)config.Get("selectedProduct"));
            // radioImage.IsChecked = true;
         }
 
@@ -41,25 +43,25 @@ namespace WpfPOS
         // for radioLabel
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
-            toggleRadio("LabelIsVisible");
+            toggleRadio("userLabelIsVisible");
         }
 
         // radioButton
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)
         {
-            toggleRadio("ButtonIsVisible");
+            toggleRadio("userButtonIsVisible");
         }
 
         // radioImages
         private void RadioButton_Click_2(object sender, RoutedEventArgs e)
         {
-            toggleRadio("ImageIsVisible");
+            toggleRadio("userImageIsVisible");
         }
 
         // radioDropdown
         private void RadioButton_Click_3(object sender, RoutedEventArgs e)
         {
-            toggleRadio("DropIsVisible");
+            toggleRadio("userDropIsVisible");
         }
 
         public void toggleRadio(string str)
@@ -71,7 +73,7 @@ namespace WpfPOS
                     config.Set(item.Key, "Visible");
 
                 }
-                else if (!item.Key.Equals("popupPay"))
+                else if (item.Key.StartsWith("user"))
                 {
                     config.Set(item.Key, "Collapsed");
                 }
@@ -103,16 +105,16 @@ namespace WpfPOS
 
             switch (radioChecked)
             {
-                case "LabelIsVisible":
+                case "userLabelIsVisible":
                     radioLabel.IsChecked = true;
                     break;
-                case "ButtonIsVisible":
+                case "userButtonIsVisible":
                     radioButton.IsChecked = true;
                     break;
-                case "DropIsVisible":
+                case "userDropIsVisible":
                     radioDropdown.IsChecked = true;
                     break;
-                case "ImageIsVisible":
+                case "userImageIsVisible":
                     radioImage.IsChecked = true;
                     break;
                 default:
@@ -133,6 +135,28 @@ namespace WpfPOS
         private void popupWindow_Click(object sender, RoutedEventArgs e)
         {
             config.Set("popupPay", "true");
+            config.Write(filename);
+        }
+
+        private void fillComboBox()
+        {
+            foreach (KeyValuePair<string, object> item in config.GetDict().ToList())
+            {
+                if (item.Key.StartsWith("Product"))
+                {
+                    comboBoxProduct.Items.Add((string)item.Value);
+                } else if (item.Key.StartsWith("selected"))
+                {
+                    comboBoxProduct.SelectedIndex = comboBoxProduct.Items.IndexOf(item.Value);
+                }
+            }
+
+        }
+
+        private void comboBoxProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MainWindow.productData = (string)comboBoxProduct.SelectedItem;
+            config.Set("selectedProduct", MainWindow.productData);
             config.Write(filename);
         }
     }

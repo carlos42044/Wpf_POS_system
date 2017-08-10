@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-
+using System.Collections.Generic;
 
 namespace WpfPOS
 {
@@ -24,10 +24,15 @@ namespace WpfPOS
         Config config = new Config();
         // Employee and product classes
         Employee[] user = new Employee[5];
-        Product[] items = new Product[6];
+        List<Product> items = new List<Product>();
         Employee currentUser;
 
         public static bool paid = false;
+
+        // Variables for the productData set
+        public static string productData;
+        public static string productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
+
         // Variable to store runningTotal
         public static double runningTotal = 0.0;
 
@@ -76,27 +81,35 @@ namespace WpfPOS
 
             if (!File.Exists(filename))
             {
-                config.Set("LabelIsVisible", "Visible");
-                config.Set("ButtonIsVisible", "Collapsed");
-                config.Set("ImageIsVisible", "Collapsed");
-                config.Set("DropIsVisible", "Collapsed");
+                config.Set("userLabelIsVisible", "Visible");
+                config.Set("userButtonIsVisible", "Collapsed");
+                config.Set("userImageIsVisible", "Collapsed");
+                config.Set("userDropIsVisible", "Collapsed");
                 config.Set("popupPay", "false");
                 config.Write(filename);
                 config.Read(filename);                                    
             }
-
+            //productData = (string)config.Get("selectedProduct");
+            //MessageBox.Show("In the initialize(): " + productData);
             containerVisibility();
             updateName();
-            updateProducts();
             randomUser();
             updateContainers();
-            createTableHeaders();
            
             // Creates timer for timeStamp label
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
+            productData = (string)config.Get("selectedProduct");
+           // MessageBox.Show("In the initialize(): " + productData);
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0,0,1);
-            dispatcherTimer.Start();        
+            dispatcherTimer.Start();
+
+            productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
+            updateProducts();
+
+            createTableHeaders();
+
         }
 
         private void createTableHeaders()
@@ -108,6 +121,8 @@ namespace WpfPOS
             table.Columns.Add(new DataColumn("Total", typeof(String)));
             dataGridView1.ItemsSource = table.DefaultView;
 
+            
+            
             // Headers for the transaction table
             table2.Columns.Add(new DataColumn("Stamp", typeof(String)));
             table2.Columns.Add(new DataColumn("User", typeof(String)));
@@ -131,7 +146,6 @@ namespace WpfPOS
         { 
             User = user[new Random().Next(0, 5)].getFirstName();
             theUser = User;
-            //MessageBox.Show("randomUser() : " + User);
         }
 
         private void nameBtn_Click(object sender, RoutedEventArgs e)
@@ -165,13 +179,13 @@ namespace WpfPOS
             config.Read(filename);
 
             ButtonIsVisible = (System.Windows.Visibility)
-                Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("ButtonIsVisible"));
+                Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("userButtonIsVisible"));
             ImageIsVisible = (System.Windows.Visibility)
-               Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("ImageIsVisible"));
+               Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("userImageIsVisible"));
             DropIsVisible = (System.Windows.Visibility)
-               Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("DropIsVisible"));
+               Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("userDropIsVisible"));
             LabelIsVisible = (System.Windows.Visibility)
-               Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("LabelIsVisible"));
+               Enum.Parse(typeof(System.Windows.Visibility), (string)config.Get("userLabelIsVisible"));
           
         }
 
@@ -191,7 +205,7 @@ namespace WpfPOS
         {
             payBtn.IsEnabled = true;
             Random rnd = new Random();
-            Product newItem = items[rnd.Next(0, items.Length)];
+            Product newItem = items[rnd.Next(0, items.Count)];
             int quantity = rnd.Next(1, 4);
             double total = (double)quantity * newItem.getPrice();
 
@@ -324,12 +338,18 @@ namespace WpfPOS
         private void updateProducts()
         {
             // Random cheese products
-            String[] products = { "Asiago", "Chedder", "Parmesan", "Swiss", "American", "PepperJack" };
-            double[] prices = { .99, 1.20, .50, 1.25, 1.99, 1.12 };
+            //String[] products = { "Asiago", "Chedder", "Parmesan", "Swiss", "American", "PepperJack" };
+            //double[] prices = { .99, 1.20, .50, 1.25, 1.99, 1.12 };
 
-            for (int i = 0; i < items.Length; i++)
+            //for (int i = 0; i < items.Length; i++)
+            //{
+            //    items[i] = new Product(products[i], prices[i]);
+            //}
+            items.Clear();
+            DataTable table = config.load(productFilename);
+            foreach (DataRow row in table.Rows)
             {
-                items[i] = new Product(products[i], prices[i]);
+                items.Add(new Product((string)row["description"], (double)row["price"]));
             }
         }
 
@@ -420,6 +440,8 @@ namespace WpfPOS
         {
             settings settingWindow = new settings();
             settingWindow.ShowDialog();
+            productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
+            updateProducts();
             config.Read(filename);
             containerVisibility();
             updateContainers();

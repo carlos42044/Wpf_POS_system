@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="settings" Height="300" Width="300">
     <Grid>
-        <GroupBox Header="Username Settings" HorizontalAlignment="Left" Height="148" Margin="10,38,0,0" VerticalAlignment="Top" Width="126"/>
-        <GroupBox Header="Pay Settings" HorizontalAlignment="Left" Height="148" Margin="156,38,0,0" VerticalAlignment="Top" Width="126">
+        <GroupBox Header="Username Settings" HorizontalAlignment="Left" Margin="10,38,0,0" Width="126" Height="148" VerticalAlignment="Top"/>
+        <GroupBox Header="Pay Settings" HorizontalAlignment="Left" Height="76" Margin="156,38,0,0" VerticalAlignment="Top" Width="126">
         </GroupBox>
         <Grid>
             <RadioButton x:Name="radioInWindow" Content="In-window" HorizontalAlignment="Left" Margin="174,71,0,0" VerticalAlignment="Top" Click="RadioButton_Click_4"/>
             <RadioButton x:Name="radioPopout" Content="Popout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,91,0,0" RenderTransformOrigin="0.894,7" Click="popupWindow_Click"/>
+            <GroupBox Header="Product Settings" HorizontalAlignment="Left" Margin="156,111,0,0" Width="126" Height="73" VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboBoxProduct" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="164,141,0,0" Height="23" RenderTransformOrigin="0.485,1.111" SelectionChanged="comboBoxProduct_SelectionChanged"/>
 
         </Grid>
         <Border Margin="29,72,178,122">
