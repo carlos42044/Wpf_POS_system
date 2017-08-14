@@ -86,6 +86,11 @@ namespace WpfPOS
                 config.Set("userImageIsVisible", "Collapsed");
                 config.Set("userDropIsVisible", "Collapsed");
                 config.Set("popupPay", "false");
+                config.Set("ProductNuts", "Nuts");
+                config.Set("ProductFruit", "Fruits");
+                config.Set("ProductVegetables", "Vegetables");
+                config.Set("ProductCheese", "Cheeses");
+                config.Set("selectedProduct", "Nuts");
                 config.Write(filename);
                 config.Read(filename);                                    
             }
