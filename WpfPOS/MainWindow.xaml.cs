@@ -93,7 +93,7 @@ namespace WpfPOS
                 config.Set("selectedProduct", "Nuts");
                 config.Write(filename);
                 config.Read(filename);                                    
-            }
+            } 
             //productData = (string)config.Get("selectedProduct");
             //MessageBox.Show("In the initialize(): " + productData);
             containerVisibility();

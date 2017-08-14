@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Cheeses" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Cheeses">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="description" type="xs:string" minOccurs="0" />
+                <xs:element name="price" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Cheeses>
+    <description>Swiss</description>
+    <price>1.1</price>
+  </Cheeses>
+  <Cheeses>
+    <description>Chedder</description>
+    <price>0.8</price>
+  </Cheeses>
+  <Cheeses>
+    <description>Parmesan</description>
+    <price>2.7</price>
+  </Cheeses>
+  <Cheeses>
+    <description>Mozzerella</description>
+    <price>0.9</price>
+  </Cheeses>
+  <Cheeses>
+    <description>Gouda</description>
+    <price>2.3</price>
+  </Cheeses>
+</NewDataSet>
