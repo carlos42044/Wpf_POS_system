@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AppSettingsLib;
+using System.Data;
+using System.IO;
 
 namespace WpfPOS
 {
@@ -24,6 +26,7 @@ namespace WpfPOS
         //string filename = @"C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\settings.config";
         Config config = new Config();
         string filename = MainWindow.filename;
+        DataTable table = new DataTable();
 
         public settings()
         {
@@ -32,7 +35,17 @@ namespace WpfPOS
             setRadioChecks();
             fillComboBox();
             comboBoxProduct.SelectedIndex = comboBoxProduct.Items.IndexOf((string)config.Get("selectedProduct"));
-           // radioImage.IsChecked = true;
+            // radioImage.IsChecked = true;
+            DataGrid1.ItemsSource = table.DefaultView;
+
+            foreach (KeyValuePair<string, object> item in config.GetDict().ToList())
+            {
+                if (item.Key.StartsWith("selected"))
+                {
+                    table.ReadXml(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + item.Value + ".xml");
+                }
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -120,7 +133,6 @@ namespace WpfPOS
                 default:
                     break;
             }
-            //MessageBox.Show("initial key in config " + radioChecked);
 
         }
 
@@ -158,6 +170,27 @@ namespace WpfPOS
             MainWindow.productData = (string)comboBoxProduct.SelectedItem;
             config.Set("selectedProduct", MainWindow.productData);
             config.Write(filename);
+
+            MessageBox.Show(table.TableName);
+            renderTable();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddProductDialog productDialog = new AddProductDialog();
+            productDialog.ShowDialog();
+
+            if (productDialog.NewProductAdded)
+            {
+                comboBoxProduct.Items.Add(productDialog.NewProduct);
+                comboBoxProduct.SelectedIndex = comboBoxProduct.Items.IndexOf(productDialog.NewProduct);
+            }  
+        }
+
+        private void renderTable()
+        {
+            // combobox selcted index change method is being called as soon as settings is hit in the program fix it 
+            table.ReadXml(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + (string)comboBoxProduct.SelectedItem + ".xml");
         }
     }
 }

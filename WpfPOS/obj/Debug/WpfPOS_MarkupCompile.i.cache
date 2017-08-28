@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\
+C:\Users\CarlosF\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\obj\Debug\
 WpfPOS
 none
 false
 DEBUG;TRACE
-C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\App.xaml
-31787769351
+C:\Users\CarlosF\documents\visual studio 2017\Projects\WpfPOS\WpfPOS\App.xaml
+4390678405
 
-13-1433680046
-16-1501225102
-MainWindow.xaml;popup.xaml;settings.xaml;
+14-1631598971
+16-1277491590
+AddProductDialog.xaml;MainWindow.xaml;popup.xaml;settings.xaml;
 
-True
+False
 

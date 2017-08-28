@@ -22,14 +22,17 @@ namespace WpfPOS
         public static string filename = @Path.ChangeExtension(System.Reflection.Assembly.GetExecutingAssembly().Location, ".config");// + "\\settings.config";
 
         Config config = new Config();
-        // Employee and product classes
+
+        // Employee and product array/list
         Employee[] user = new Employee[5];
         List<Product> items = new List<Product>();
+
         Employee currentUser;
 
+        // Used to determine if payment has been succesfully processed in the popup window pay
         public static bool paid = false;
 
-        // Variables for the productData set
+        // Variables for the productData set (loading different product)
         public static string productData;
         public static string productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
 
@@ -47,7 +50,7 @@ namespace WpfPOS
         public static string Required { get; set; }
         public static bool processClicked = false;
 
-        // Properties for container visibility
+        // Properties for container visibility (labels, image, buttons, dropdown)
         public Visibility ButtonIsVisible
         {
             get { return nameBtn.Visibility; }
@@ -424,7 +427,7 @@ namespace WpfPOS
             return (ImageObject);
         }
         
-        // Bitmap to text converter
+        // Bitmap to bitmap image converter
         public BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())

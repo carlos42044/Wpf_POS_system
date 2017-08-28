@@ -5,28 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfPOS"
         mc:Ignorable="d"
-        Title="settings" Height="300" Width="300">
-    <Grid>
-        <GroupBox Header="Username Settings" HorizontalAlignment="Left" Margin="10,38,0,0" Width="126" Height="148" VerticalAlignment="Top"/>
-        <GroupBox Header="Pay Settings" HorizontalAlignment="Left" Height="76" Margin="156,38,0,0" VerticalAlignment="Top" Width="126">
-        </GroupBox>
-        <Grid>
-            <RadioButton x:Name="radioInWindow" Content="In-window" HorizontalAlignment="Left" Margin="174,71,0,0" VerticalAlignment="Top" Click="RadioButton_Click_4"/>
-            <RadioButton x:Name="radioPopout" Content="Popout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,91,0,0" RenderTransformOrigin="0.894,7" Click="popupWindow_Click"/>
-            <GroupBox Header="Product Settings" HorizontalAlignment="Left" Margin="156,111,0,0" Width="126" Height="73" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboBoxProduct" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="164,141,0,0" Height="23" RenderTransformOrigin="0.485,1.111" SelectionChanged="comboBoxProduct_SelectionChanged"/>
+        Title="settings" Height="373.026" Width="406.579">
+    <Grid Margin="0,0,-8,20">
+        <Grid HorizontalAlignment="Right" Width="292" Margin="0,10,97,-10">
+            <TabControl x:Name="TabControl1" HorizontalAlignment="Left" Height="256" Margin="10,10,-82,0" VerticalAlignment="Top" Width="364">
+                <TabItem Header="Name ">
+                    <Grid Margin="0,0,0,-19">
+                        <RadioButton x:Name="radioLabel" Content="Labels" HorizontalAlignment="Left" Click="RadioButton_Click" Margin="0,20,0,60"/>
+                        <RadioButton x:Name="radioButton" Content="Buttons" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Click="RadioButton_Click_1"/>
+                        <RadioButton x:Name="radioImage" Content="Images" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Click="RadioButton_Click_2"/>
+                        <RadioButton x:Name="radioDropdown" Content="DropDown" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.138,2.098" Click="RadioButton_Click_3"/>
 
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Payment">
+                    <Grid>
+                        <RadioButton x:Name="radioInWindow" Content="In-window" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" Click="RadioButton_Click_4"/>
+                        <RadioButton x:Name="radioPopout" Content="Popout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,40,0,0" RenderTransformOrigin="0.894,7" Click="popupWindow_Click"/>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Name="productTab" Header="Product">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Product:"/>
+                            <ComboBox x:Name="comboBoxProduct" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="0,1,0,0" Height="23"  SelectionChanged="comboBoxProduct_SelectionChanged"/>
+
+                            <Button Content="New" Margin="10,2,10,2" Click="Button_Click_1"/>
+                            <Button Content="Save" Margin="0,2,10,2"/>
+                        </StackPanel>
+                        <DataGrid x:Name="DataGrid1" Grid.Row="1"  Grid.ColumnSpan="2"></DataGrid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+ 
         </Grid>
-        <Border Margin="29,72,178,122">
-            <Grid Margin="0,0,0,-19">
-                <RadioButton x:Name="radioLabel" Content="Labels" HorizontalAlignment="Left" Click="RadioButton_Click" Margin="0,0,0,60"/>
-                <RadioButton x:Name="radioButton" Content="Buttons" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" Click="RadioButton_Click_1"/>
-                <RadioButton x:Name="radioImage" Content="Images" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Click="RadioButton_Click_2"/>
-                <RadioButton x:Name="radioDropdown" Content="DropDown" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.138,2.098" Click="RadioButton_Click_3"/>
-
-            </Grid>
-        </Border>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="108,209,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="165,289,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>
