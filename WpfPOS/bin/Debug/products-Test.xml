@@ -1,14 +1,14 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Xzs" msdata:UseCurrentLocale="true">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Test" msdata:UseCurrentLocale="true">
       <xs:complexType>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element name="Xzs">
+          <xs:element name="Test">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="Description" type="xs:string" minOccurs="0" />
-                <xs:element name="Price" type="xs:double" minOccurs="0" />
+                <xs:element name="description" type="xs:string" minOccurs="0" />
+                <xs:element name="price" type="xs:double" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -16,4 +16,12 @@
       </xs:complexType>
     </xs:element>
   </xs:schema>
+  <Test>
+    <description>one</description>
+    <price>1</price>
+  </Test>
+  <Test>
+    <description>two</description>
+    <price>2</price>
+  </Test>
 </NewDataSet>

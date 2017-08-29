@@ -18,3 +18,5 @@ C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Release
 C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Release\WpfPOS.csproj.GenerateResource.Cache
 C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Release\WpfPOS.exe
 C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Release\WpfPOS.pdb
+C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Release\AddProductDialog.g.cs
+C:\Users\CarlosF\Documents\Visual Studio 2017\Projects\WpfPOS\WpfPOS\obj\Release\AddProductDialog.baml

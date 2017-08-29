@@ -48,7 +48,6 @@
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="413,316,0,0" VerticalAlignment="Top" Width="75" Height="26" Visibility="Collapsed" Click="cancelBtn_Click"/>
         <Label x:Name="timeLabel" Content="Time" HorizontalAlignment="Left" Margin="411,11,0,0" VerticalAlignment="Top" Width="77" Background="LightGray"/>
         <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="863,-12,-446,0" VerticalAlignment="Top" Width="100"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-150,311,0,0" VerticalAlignment="Top"/>
     </Grid>
     
     
