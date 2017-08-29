@@ -34,7 +34,7 @@ namespace WpfPOS
 
         // Variables for the productData set (loading different product)
         public static string productData;
-        public static string productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
+        public static string productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + productData + ".xml";
 
         // Variable to store runningTotal
         public static double runningTotal = 0.0;
@@ -90,9 +90,9 @@ namespace WpfPOS
                 config.Set("userDropIsVisible", "Collapsed");
                 config.Set("popupPay", "false");
                 config.Set("ProductNuts", "Nuts");
-                config.Set("ProductFruit", "Fruits");
+                config.Set("ProductFruits", "Fruits");
                 config.Set("ProductVegetables", "Vegetables");
-                config.Set("ProductCheese", "Cheeses");
+                config.Set("ProductCheeses", "Cheeses");
                 config.Set("selectedProduct", "Nuts");
                 config.Write(filename);
                 config.Read(filename);                                    
@@ -113,7 +113,7 @@ namespace WpfPOS
             dispatcherTimer.Interval = new TimeSpan(0,0,1);
             dispatcherTimer.Start();
 
-            productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
+            productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + productData + ".xml";
             updateProducts();
 
             createTableHeaders();
@@ -448,7 +448,7 @@ namespace WpfPOS
         {
             settings settingWindow = new settings();
             settingWindow.ShowDialog();
-            productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + productData + ".xml";
+            productFilename = @Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + productData + ".xml";
             updateProducts();
             config.Read(filename);
             containerVisibility();

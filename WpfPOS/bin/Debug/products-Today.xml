@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Today" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Today">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="description" type="xs:string" minOccurs="0" />
+                <xs:element name="price" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Today>
+    <description>dsdd</description>
+    <price>2</price>
+  </Today>
+  <Today>
+    <description>233</description>
+    <price>5</price>
+  </Today>
+  <Today>
+    <description>324</description>
+    <price>4</price>
+  </Today>
+  <Today>
+    <description>wednesday</description>
+    <price>32.33</price>
+  </Today>
+  <Today>
+    <description>wee</description>
+    <price>32</price>
+  </Today>
+  <Today>
+    <description>3233</description>
+    <price>333</price>
+  </Today>
+  <Today>
+    <description>ddd</description>
+    <price>1</price>
+  </Today>
+</NewDataSet>

@@ -27,6 +27,7 @@ namespace WpfPOS
         Config config = new Config();
         string filename = MainWindow.filename;
         DataTable table = new DataTable();
+        bool saved = false;
 
         public settings()
         {
@@ -38,18 +39,20 @@ namespace WpfPOS
             // radioImage.IsChecked = true;
             DataGrid1.ItemsSource = table.DefaultView;
 
-            foreach (KeyValuePair<string, object> item in config.GetDict().ToList())
-            {
-                if (item.Key.StartsWith("selected"))
-                {
-                    table.ReadXml(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + item.Value + ".xml");
-                }
-            }
-
+            table.ReadXml(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + config.GetDict()["selectedProduct"] + ".xml");
         }
 
+        // Ok button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (!saved)
+            {
+                MessageBoxResult result = MessageBox.Show("Your changes have not been saved.\r\nDo you want to save your changes?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    saveChanges();
+                } 
+            }
             this.Close();
         }
 
@@ -167,11 +170,15 @@ namespace WpfPOS
 
         private void comboBoxProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!IsLoaded)
+            {
+                return; 
+            }
+
             MainWindow.productData = (string)comboBoxProduct.SelectedItem;
             config.Set("selectedProduct", MainWindow.productData);
             config.Write(filename);
 
-            MessageBox.Show(table.TableName);
             renderTable();
         }
 
@@ -179,18 +186,53 @@ namespace WpfPOS
         {
             AddProductDialog productDialog = new AddProductDialog();
             productDialog.ShowDialog();
-
+            config.Read(filename);
+            
             if (productDialog.NewProductAdded)
             {
+
+                table.Clear();
+                table.TableName = productDialog.NewProduct;
+
+               // table = config.load(productDialog.NewProduct);
+                config.load(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + productDialog.NewProduct + ".xml");
                 comboBoxProduct.Items.Add(productDialog.NewProduct);
                 comboBoxProduct.SelectedIndex = comboBoxProduct.Items.IndexOf(productDialog.NewProduct);
-            }  
+                MainWindow.productData = (string)comboBoxProduct.SelectedItem;
+            }
         }
 
         private void renderTable()
         {
-            // combobox selcted index change method is being called as soon as settings is hit in the program fix it 
-            table.ReadXml(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\proudcts-" + (string)comboBoxProduct.SelectedItem + ".xml");
+
+            table.Clear();
+            string dataPath = @System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + MainWindow.productData + ".xml";
+            table.TableName = MainWindow.productData; ;
+            table.ReadXml(dataPath);
+            //DataGrid1.ItemsSource = table.DefaultView;
+        }
+
+        // save button
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            saveChanges();
+        }
+
+        private void saveChanges()
+        {
+            saved = true;
+            savedLabel.Visibility = Visibility.Visible;
+
+            table.WriteXml(@System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\products-" + MainWindow.productData + ".xml", XmlWriteMode.WriteSchema);
+
+            Task.Delay(2000).ContinueWith(_ =>
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    savedLabel.Visibility = Visibility.Hidden;
+                });
+            }
+            );
         }
     }
 }

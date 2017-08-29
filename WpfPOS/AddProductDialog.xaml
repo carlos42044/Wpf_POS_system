@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfPOS"
         mc:Ignorable="d"
-        Title="AddProductDialog" Height="176.613" Width="300">
+        Title="New Product" Height="176.613" Width="300">
     <Grid Margin="0,0,0,4">
-        <Label Content="Product Name" FontWeight="Bold" HorizontalAlignment="Left" Margin="92,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="79,41,0,0" TextWrapping="Wrap" Text="e.g: CarParts" FontWeight="ExtraLight" VerticalAlignment="Top" Width="120" TextChanged="textBox1_TextChanged"/>
-        <Button x:Name="okBtn" Content="OK" HorizontalAlignment="Left" Margin="126,100,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.545,1.115" Click="Button_Click"/>
+        <Label Content="New Product Name" FontWeight="Bold" Margin="86,10,65,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" Height="23" Margin="86,41,86,0" TextWrapping="Wrap" FontWeight="ExtraLight" VerticalAlignment="Top" TextChanged="textBox1_TextChanged"/>
+        <Button x:Name="okBtn" Content="OK" Margin="131,100,131,0" VerticalAlignment="Top" RenderTransformOrigin="0.545,1.115" Click="Button_Click"/>
         <Label x:Name="existsLabel" Visibility="Hidden" Content="Product already exists!" Foreground="Red"  HorizontalAlignment="Left" Margin="79,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,0.123" Height="31" Width="134"/>
+        <Label x:Name="wrongInput" Visibility="Hidden" Content="Enter only letters and spaces!" Foreground="Red" Margin="64,69,41,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,0.123" Height="31"/>
+
     </Grid>
 </Window>

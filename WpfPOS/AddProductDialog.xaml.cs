@@ -22,7 +22,6 @@ namespace WpfPOS
     {
         Config config = new Config();
         string filename = MainWindow.filename;
-        bool productFound = false;
 
         public string NewProduct { get; set; }
         public bool NewProductAdded { get; set; }
@@ -37,29 +36,30 @@ namespace WpfPOS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string productName = textBox1.Text.ToLower();
-            productName = char.ToUpper(productName[0]) + productName.Substring(1);
-
-            if (!productFound) okBtn.IsEnabled = true;
-
-            foreach (KeyValuePair<string, object> item in config.GetDict().ToList())
+            foreach (char c in textBox1.Text)
             {
-                if (item.Key.Equals("Product" + productName))
+               if(!Char.IsLetterOrDigit(c))
                 {
-                    MessageBox.Show("found the product" + productName);
-                    existsLabel.Visibility = Visibility.Visible;
-                    okBtn.IsEnabled = false;
-                    productFound = true;
-                }
-
-                productFound = false;
+                    wrongInput.Visibility = Visibility.Visible;
+                    return;
+                } 
             }
 
-            if (!productFound)
+            wrongInput.Visibility = Visibility.Hidden;
+
+            string key = textBox1.Text.ToLower();
+            key = char.ToUpper(key[0]) + key.Substring(1);
+
+            config.Read(filename);
+
+            if (config.GetDict().ContainsKey("Product"+ key))
             {
-                config.Set("Product" + productName, productName);
+                existsLabel.Visibility = Visibility.Visible;
+            }
+            else {
+                config.Set("Product" + key, key);
                 config.Write(filename);
-                NewProduct = productName;
+                NewProduct = key;
                 NewProductAdded = true;
                 this.Close();
             }
@@ -67,14 +67,14 @@ namespace WpfPOS
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            try
+           if (!IsLoaded)
             {
-                okBtn.IsEnabled = true;
-
-            } catch(Exception ee)
-            {
-
+                return; 
             }
+
+            wrongInput.Visibility = Visibility.Hidden;
+            existsLabel.Visibility = Visibility.Hidden;
+
         }
     }
 }
